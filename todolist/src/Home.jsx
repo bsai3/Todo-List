@@ -8,17 +8,15 @@ function Home() {
     const [todos, setTodos] = useState([]);
 
     useEffect(() => {
-        axios.get("http://localhost:3001/get")
-            .then(result => setTodos(result.data))
-            .catch(err => console.log(err));
+    axios.get("https://todo-list-backend-gfr7.onrender.com/get")
+        .then(result => setTodos(result.data))
+        .catch(err => console.log(err));
     }, []);
 
-    const handleEdit = (id, currentStatus) => {
-        axios.put(`http://localhost:3001/update/${id}`, { done: !currentStatus })
-            .then(() => {
-                setTodos(todos.map(todo => todo._id === id ? { ...todo, done: !currentStatus } : todo));
-            })
-            .catch(err => console.log(err));
+    const handleEdit = (id) => {
+    axios.put(`https://todo-list-backend-gfr7.onrender.com/update/${id}`, { done: true })
+        .then(result => console.log(result))
+        .catch(err => console.log(err));
     };
 
     const handleDelete = (id) => {
