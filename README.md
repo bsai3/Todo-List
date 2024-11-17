@@ -19,5 +19,5 @@ npm run dev
 ```
 ```bash
 cd server
-npx nodemon index.js
+node index.js
 ```
